@@ -1,0 +1,8 @@
+name = "HARV"
+uuid = "d3109d73-0a10-4759-97a3-b16d8538024b"
+authors = ["WhiffleFish <tylertronics@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+DifferentialEquations = "0c46a032-eb83-5123-abaf-570d42b7fbaa"
+LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
