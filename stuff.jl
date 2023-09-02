@@ -124,3 +124,8 @@ dynamics(u0, nothing, nothing)
 
 v1 = SA[1.,2.]
 v2 = [2.,3.]
+
+using DifferentialEquations
+tspan = (0.0, 1.0)
+prob = ODEProblem(dynamics, u0, tspan)
+solve(dynamics, u0, (0.0, 1.0))
