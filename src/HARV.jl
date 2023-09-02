@@ -1,5 +1,8 @@
 module HARV
 
-greet() = print("Hello World!")
+using StaticArrays
+using LinearAlgebra
+
+include("model.jl")
 
 end # module HARV

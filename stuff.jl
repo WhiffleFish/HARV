@@ -94,7 +94,7 @@ tspan = (0.0,10.0)
 prob = ODEProblem(particle_dynamics, u0, tspan)
 sol = solve(prob, Tsit5())
 
-p = plot(getindex.(sol.u,1),getindex.(sol.u,2), xlabel="X (m)", ylabel="y (m)", label="")
+p = plot(getindex.(sol.u,1),getindex.(sol.u,2), xlabel="X (m)", ylabel="y (m)", label="", aspect_ratio=:equal)
 
 # savefig(p, "try8rpm.png")
 
@@ -110,3 +110,17 @@ gravity_force_vec() / M_PARTICLE
 
 ##
 2 * R_WALLZ * (0.9*R_WALLZ) * WATER_RAD_VEL / (0.69 / ((10^3)^2)) 
+
+using HARV
+using StaticArrays
+model = HARV.HARVModel()
+dynamics = HARV.particle_dynamics(model)
+u0 = [0.0, eps(), 0.0, 0.0]
+
+
+using BenchmarkTools
+dynamics(u0, nothing, nothing)
+@benchmark dynamics(u0, nothing, nothing)
+
+v1 = SA[1.,2.]
+v2 = [2.,3.]
